@@ -118,12 +118,12 @@ function App() {
                     />
                     <Route path="/signup" component={Signup} />
                     <Route path="/login" component={Login} />
-                    <PrivateRoute component={Products} exact path="/">
+                    <Route component={Products} exact path="/">
                         <Products
                             products={products}
                             onAddToCart={handleAddToCart}
                         />
-                    </PrivateRoute>
+                    </Route>
                     <PrivateRoute path="/cart">
                         <Cart
                             cart={cart}
