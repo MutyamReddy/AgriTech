@@ -4,7 +4,6 @@ import Product from "./Product/Product";
 import useStyles from "./styles";
 
 import { useAuth } from "../../contexts/AuthContext";
-import { Redirect } from "react-router-dom";
 
 const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
