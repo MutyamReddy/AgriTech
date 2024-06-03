@@ -8,6 +8,8 @@ import {
     Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
+import { useAuth } from "../../contexts/AuthContext";
+
 import useStyles from "./styles";
 import logo from "../../assets/pescticide1.jpg";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -33,6 +35,7 @@ const Navbar1 = ({ totalItems }) => {
     const location = useLocation();
     const history = useHistory();
     const theme = useTheme();
+    const { currentUser } = useAuth();
     const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
     const handleClose = () => {
@@ -306,7 +309,10 @@ const Navbar1 = ({ totalItems }) => {
                                             Pecticides
                                         </li>
                                     </div>
-                                    {location.pathname === "/cart" ? (
+                                    
+                                    {
+                                    currentUser ? (
+                                    location.pathname === "/cart" ? (
                                         ""
                                     ) : (
                                         <div className={classes.button}>
@@ -324,7 +330,7 @@ const Navbar1 = ({ totalItems }) => {
                                                 </Badge>
                                             </IconButton>
                                         </div>
-                                    )}
+                                    )): <h5 onClick={()=> history.push("/login")}>Login</h5>}
                                 </>
                             )}
                         </Toolbar>
