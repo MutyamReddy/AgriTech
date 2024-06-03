@@ -8,6 +8,8 @@ import { useAuth } from "../../contexts/AuthContext";
 const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
     const { currentUser } = useAuth();
+    const log = true
+    const red = false
 
     return (
         <>
@@ -18,6 +20,7 @@ const Products = ({ products, onAddToCart }) => {
                         {products.map((product) => (
                             <Grid item xs={10} sm={6} md={4} lg={3}>
                                 <Product
+                                    bool={log}
                                     key={product.id}
                                     product={product}
                                     onAddToCart={onAddToCart}
@@ -33,6 +36,7 @@ const Products = ({ products, onAddToCart }) => {
                         {products.map((product) => (
                             <Grid item xs={10} sm={6} md={4} lg={3}>
                                 <Product
+                                    bool={red}
                                     key={product.id}
                                     product={product}
                                 />
