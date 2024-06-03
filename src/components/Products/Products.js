@@ -28,7 +28,19 @@ const Products = ({ products, onAddToCart }) => {
                     </Grid>
                 </main>
             ) : (
-                <Redirect to="/login" />
+                <main className={classes.content}>
+                    <div className={classes.toolbar} />
+                    <Grid container justify="center" spacing={4}>
+                        {products.map((product) => (
+                            <Grid item xs={10} sm={6} md={4} lg={3}>
+                                <Product
+                                    key={product.id}
+                                    product={product}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </main>
             )}
         </>
     );
